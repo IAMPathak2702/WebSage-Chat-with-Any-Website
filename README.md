@@ -1,4 +1,4 @@
-# VED-Prakash-Pathak-Wasserstoff-AiTask
+Chat-with-Any-Website
 
 ## Description
 This project is aimed at developing a chatbot for the WordPress site "VectorDatabase" using the Pinecone LLM model from OpenAI. The chatbot facilitates natural language interactions with users visiting the site, providing them with information, answering queries, and assisting them in navigation.
