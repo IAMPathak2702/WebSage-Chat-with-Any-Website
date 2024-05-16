@@ -1,0 +1,13 @@
+README.md
+setup.py
+WebSage.egg-info/PKG-INFO
+WebSage.egg-info/SOURCES.txt
+WebSage.egg-info/dependency_links.txt
+WebSage.egg-info/top_level.txt
+src/__init__.py
+src/main.py
+src/components/__init__.py
+src/components/chatlog.py
+src/components/data_retrival.py
+src/components/llmresponse.py
+src/templates/__init__.py
