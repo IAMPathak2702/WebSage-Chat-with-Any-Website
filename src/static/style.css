@@ -1,0 +1,136 @@
+/* General styles */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #343541;
+  color: #d4d4d8;
+  margin: 0;
+  padding: 0;
+}
+
+.url {
+  color: white;
+  font-style: italic;
+  font-size: medium;
+}
+
+.header-container {
+  background-color: #202123;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-subtitle {
+  font-size: 14px;
+  color: #8e8e92;
+  margin-top: 4px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.url {
+  font-size: 16px;
+  color: #10a37f;
+  text-decoration: none;
+  margin-top: 8px;
+  transition: color 0.3s ease;
+}
+
+.url:hover {
+  color: #0c8b68;
+}
+
+.refresh-btn {
+  background-color: #10a37f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.refresh-btn:hover {
+  background-color: #0c8b68;
+}
+
+/* Chat history styles */
+.chat-container {
+  height: calc(100vh - 250px);
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.chat-history {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.message-container {
+  max-width: 60%;
+  padding: 12px;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
+.message-container.user-input {
+  background-color: #444654;
+  margin-left: auto;
+  width: fit-content;
+  font-size: 18pt;
+}
+
+.message-container.ai-response {
+  background-color: #40414f;
+  width: fit-content;
+  font-size: 18pt;
+}
+
+/* Input styles */
+.input-container {
+  background-color: #40414f;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.user-input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-size: 25pt;
+  padding: 8px;
+}
+
+.send-button {
+  background-color: #10a37f;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-icon {
+  width: 30px;
+  height: 20px;
+  fill: white;
+}

@@ -1,11 +1,9 @@
-Chat-with-Any-Website
+# VED-Prakash-Pathak-Wasserstoff-AiTask
 
 ## Description
-
 This project is aimed at developing a chatbot for the WordPress site "VectorDatabase" using the Pinecone LLM model from OpenAI. The chatbot facilitates natural language interactions with users visiting the site, providing them with information, answering queries, and assisting them in navigation.
 
 ## Features
-
 - Chatbot powered by the Pinecone LLM model
 - Integration with WordPress site "VectorDatabase"
 - User-friendly UI made with HTML and CSS, utilizing Bootstrap
@@ -13,7 +11,6 @@ This project is aimed at developing a chatbot for the WordPress site "VectorData
 - Real-time communication using WebSocket
 
 ## Technologies Used
-
 - OpenAI Pinecone LLM model
 - FastAPI
 - HTML/CSS (Bootstrap)
@@ -21,7 +18,6 @@ This project is aimed at developing a chatbot for the WordPress site "VectorData
 - WordPress REST API
 
 ## Installation
-
 1. Clone this repository:
    ```bash
    git clone https://github.com/IAMPathak2702/ved-prakash-pathak-wasserstoff-aitask.git
@@ -31,39 +27,7 @@ This project is aimed at developing a chatbot for the WordPress site "VectorData
    pip install -r requirements.txt
    ```
 
-## file tree
-
-|-Dockerfile
-|-document.pdf
-|-Experiments
-| |-.ipynb_checkpoints
-| | |-ragchatbot-checkpoint.ipynb
-| |-ragchatbot.ipynb
-|-README.md
-|-requirements.txt
-|-setup.py
-|-snapshots
-| |-chatbotgif.gif
-| |-photo_2024-05-06_18-48-47.jpg
-| |-Screenshot 2024-05-06 183716.png
-| |-Screenshot 2024-05-06 183747.png
-| |-video_2024-05-06_18-49-02.mp4
-|-src
-| |-.gitignore
-| |-components
-| | |-chatlog.py
-| | |-data_retrival.py
-| | |-llmresponse.py
-| | |-**init**.py
-| |-main.py
-| |-README.md
-| |-templates
-| | |-index.html
-| | |-**init**.py
-| |-**init**.py
-
 ## Usage
-
 1. Start the FastAPI server:
    ```bash
    uvicorn main:app --reload
@@ -71,24 +35,19 @@ This project is aimed at developing a chatbot for the WordPress site "VectorData
 2. Access the application at `http://localhost:8000` in your browser.
 
 ## Configuration
-
 Make sure to set the following environment variables:
-
 - `OPENAPI_KEY`: Your OpenAI API Key
 - `WORDPRESS_USERNAME`: WordPress username for accessing the site
 - `WORDPRESS_PASSWORD`: WordPress password for accessing the site
 - `APIURL`: URL for the WordPress REST API
 
 ## Contributing
-
 Contributions are welcome! Feel free to open issues or pull requests for any improvements or features you'd like to add.
 
 ## License
-
 This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
-
 - [OpenAI](https://openai.com) for providing the Pinecone LLM model
 - [FastAPI](https://fastapi.tiangolo.com) for the RESTful API framework
 - [Bootstrap](https://getbootstrap.com) for the UI styling
@@ -97,13 +56,10 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 Project Snapshots
-
 # chatbot response
-
 <img src=https://raw.githubusercontent.com/IAMPathak2702/ved-prakash-pathak-wasserstoff-AiTask/main/snapshots/chatbotgif.gif>
 
 ## wordpress website
-
 <img src=https://raw.githubusercontent.com/IAMPathak2702/ved-prakash-pathak-wasserstoff-AiTask/main/snapshots/photo_2024-05-06_18-48-47.jpg>
 
 ## wordpres plugin setting that fetch data

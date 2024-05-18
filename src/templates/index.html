@@ -1,175 +1,41 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ChatBot 🤖</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
+	<title>ChatbotAI</title>
+	<link rel="stylesheet" href="../static/style.css">
 </head>
-<style>
-	body {
-		background-color: #060505;
-		/* Dark background color */
-		color: #060505;
-		/* Light text color */
-	}
 
-	.card-header {
-		font-weight: bolder;
-		font-size: xx-large;
-		background-color: #060505;
-		color: #eaf4f3;
-		border: 1pt solid #eaf4f3;
-
-
-	}
-
-	.card-body {
-		background-color: #060505;
-	}
-
-	#chat-history {
-		max-height: calc(100vh - 200px);
-		/* Adjust height to fit the viewport */
-		overflow-y: auto;
-		/* Add scrollbar when content overflows */
-		margin-bottom: 10%;
-
-	}
-
-	.chat-message {
-		max-width: max-content;
-		padding: 10px;
-		border-radius: 10px;
-		margin-bottom: 10px;
-		word-wrap: break-word;
-
-	}
-
-	.chat-message.user-input {
-		background-color: #1b40ba;
-		margin-left: auto;
-		color: #eaf4f3;
-		max-width: fit-content;
-		padding: 10px;
-		border-radius: 10px;
-		margin-bottom: 10px;
-		word-wrap: break-word;
-		font-size: larger;
-		font-weight: bold;
-	}
-
-	.chat-message.ai-response {
-		background-color: greenyellow;
-		margin-right: auto;
-		color: #0c0c0c;
-		max-width: fit-content;
-		padding: 10px;
-		border-radius: 10px;
-		margin-bottom: 10px;
-		word-wrap: break-word;
-		font-size: larger;
-		font-weight: bold;
-	}
-
-	#footer {
-		position: fixed;
-		bottom: 0;
-		width: 100%;
-		background-color: #060505;
-		padding: 10px;
-		margin-top: auto;
-	}
-
-	nav {
-		border: 100pt solid wheat;
-		background-color: #1b40ba;
-		font-size: x-large;
-		font-weight: bolder;
-		padding: 10px;
-		border: 10pt #eaf4f3;
-		border-color: #eaf4f3;
-		border-bottom: 10pt white;
-	}
-
-
-
-	#sendButton {
-		color: whitesmoke;
-		background-color: blue;
-		font-size: larger;
-		font-weight: 900;
-		padding: 10px;
-	}
-
-	#urlButton {
-		color: whitesmoke;
-		background-color: blue;
-		font-size: large;
-		font-weight: bold;
-		padding: 2px;
-	}
-
-	.card {
-		text-align: center;
-		border-bottom: 1px solid snow;
-		height: 510pt;
-		padding: 1pt;
-		overflow-y: auto;
-	}
-</style>
-
-<body>
-	<!-- Navbar -->
-	<nav class="navbar navbar-dark navbar-box">
-		<div class="container-fluid">
-			<div class="navbar-brand">RAG Based ChatBot</div>
-			<!-- Move the urlResponse div to the center -->
-			<div class="d-flex justify-content-center flex-grow-1">
-				<div id="urlResponse" class="text-success">
-					<h3>{{ URL_RESPONSE }} </h3>
-				</div>
-			</div>
-			<form class="d-flex" id="url-form">
-				<input type="text" class="form-control me-2" id="url-input" placeholder="Enter URL">
-				<button type="submit" id="urlButton" class="btn btn-primary">Submit</button>
-			</form>
+<body class="indexBody">
+	<!-- Header -->
+	<header>
+		<div class="header-container">
+			<h1 class="header-title">ChatbotAI</h1>
+			<div class="header-subtitle">communicate with your website</div>
+			<a class="url" href="{{ api_url }}">{{ api_url }}</a>
+			<button class="refresh-btn">Refresh</button>
 		</div>
-	</nav>
+	</header>
 
-
-	<!-- Chatbox -->
-	<div class="container mt-5">
-		<!-- Chat History -->
-		<div class="card">
-			<div class="card-header">Chat History</div>
-			<div class="card-body chat-history" id="chatHistory">
-				<!-- Render user input or AI response -->
-				{% for response in chat_responses %}
-				<div class="{{ response.class }}">{{ response.message }}</div>
-				{% endfor %}
-			</div>
-		</div>
+	<!-- Chat Container -->
+	<div class="chat-container">
+		<div class="chat-history" id="chatHistory"></div>
 	</div>
 
-	<!-- Footer with input field -->
-	<div id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="input-group mb-3">
-						<input class="form-control" placeholder="Add input here" id="userInput">
-						<button class="btn btn-outline-primary" type="button" id="sendButton">Send</button>
-					</div>
-				</div>
-			</div>
-		</div>
+	<!-- Input Container -->
+	<div class="input-container">
+		<textarea class="user-input" placeholder="Ask me anything..." id="userInput" rows="1"></textarea>
+		<button class="send-button" id="sendButton">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="send-icon">
+				<path
+					d="M3.478 2.105A.75.75 0 004.26 2h15.483a.75.75 0 01.72.905l-3.072 14.625a.75.75 0 01-1.456.167L15.36 15.62l-3.048 3.048a.75.75 0 01-1.06-1.06l3.049-3.049-7.144-7.145a.75.75 0 01.167-1.456L3.478 2.105z" />
+			</svg>
+		</button>
 	</div>
-
+	<code>
+	</code>
 	<script>
 		var ws = new WebSocket("ws://localhost:8000/ws");
 		var sendButton = document.getElementById("sendButton");
@@ -177,37 +43,63 @@
 		var chatHistory = document.getElementById("chatHistory");
 		var lastUserMessageDiv = null;
 		var isNewUserInput = true;
+		const refreshBtn = document.querySelector(".refresh-btn");
+
+		refreshBtn.addEventListener("click", refreshWebsite);
+
+		function refreshWebsite() {
+			window.location.href = "http://127.0.0.1:8000/";
+		}
+
+
+		function renderMarkdown(markdown) {
+			const html = marked.parse(markdown);
+			const renderedMarkdown = document.createElement('div');
+			renderedMarkdown.innerHTML = html;
+			return renderedMarkdown;
+		}
 
 		ws.onmessage = function (event) {
 			var message = event.data.trim();
 
 			if (lastUserMessageDiv && !isNewUserInput) {
 				var shouldAddSpace = true;
-				var noPrependSpaceChars = [',', '.', '!', '?', ';', ':'];
+				var noPrependSpaceChars = [",", ".", "!", "?", ";", ":"];
 				if (noPrependSpaceChars.includes(message.charAt(0))) {
 					shouldAddSpace = false;
 				}
-				lastUserMessageDiv.textContent += (shouldAddSpace ? " " : "") + message;
+				lastUserMessageDiv.querySelector(".message-content").textContent +=
+					(shouldAddSpace ? " " : "") + message;
 			} else {
-				var messageDiv = document.createElement("div");
-				messageDiv.textContent = message;
-				messageDiv.className = "chat-message ai-response";
-				chatHistory.appendChild(messageDiv);
-				lastUserMessageDiv = messageDiv;
+				var messageContainer = document.createElement("div");
+				messageContainer.classList.add("message-container", "ai-response");
+
+				var messageContent = document.createElement("div");
+				messageContent.classList.add("message-content");
+				messageContent.textContent = message;
+
+				messageContainer.appendChild(messageContent);
+				chatHistory.appendChild(messageContainer);
+				lastUserMessageDiv = messageContainer;
 				isNewUserInput = false;
 			}
 		};
 
-		sendButton.addEventListener('click', sendMessage);
+		sendButton.addEventListener("click", sendMessage);
 
 		function sendMessage() {
 			var message = userInput.value.trim();
 
 			if (message) {
-				var userInputDiv = document.createElement("div");
-				userInputDiv.textContent = message;
-				userInputDiv.className = "chat-message user-input";
-				chatHistory.appendChild(userInputDiv);
+				var userInputContainer = document.createElement("div");
+				userInputContainer.classList.add("message-container", "user-input");
+
+				var userInputContent = document.createElement("div");
+				userInputContent.classList.add("message-content");
+				userInputContent.textContent = message;
+
+				userInputContainer.appendChild(userInputContent);
+				chatHistory.appendChild(userInputContainer);
 				chatHistory.scrollTop = chatHistory.scrollHeight;
 			}
 
@@ -217,54 +109,15 @@
 			lastUserMessageDiv = null;
 		}
 
-		userInput.addEventListener('keypress', function (event) {
-			if (event.key === 'Enter' && !event.ctrlKey) {
+		userInput.addEventListener("keypress", function (event) {
+			if (event.key === "Enter" && !event.ctrlKey) {
 				event.preventDefault();
 				sendMessage();
 			}
 		});
 
-		function url_retrieval() {
-			var url = document.getElementById("url-input").value;
-			var formData = new FormData();
-			formData.append("url", url);
 
-			fetch("/url", {
-				method: "POST",
-				body: formData,
-			})
-				.then((response) => response.json())
-				.then((data) => {
-					console.log(data);
-					if (data && data.URL_RESPONSE) {
-						var urlResponseDiv = document.getElementById("urlResponse");
-						// Apply yellow-green color to the URL response
-						urlResponseDiv.style.color = "yellowgreen";
-						urlResponseDiv.textContent = data.URL_RESPONSE;
-					}
-				})
-				.catch((error) => {
-					console.error("Error:", error);
-				});
-		}
-
-
-		document.addEventListener("DOMContentLoaded", function () {
-			var urlForm = document.getElementById("url-form");
-
-			urlForm.addEventListener("submit", function (event) {
-				event.preventDefault();
-				url_retrieval();
-			});
-		});
 	</script>
-
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-		integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-		integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-		crossorigin="anonymous"></script>
 </body>
 
 </html>

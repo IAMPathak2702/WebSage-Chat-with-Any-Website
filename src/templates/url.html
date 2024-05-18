@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Communicator</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #343541;
+            color: #D4D4D8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* URL Container */
+        .urlContainer {
+            background-color: #202123;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* URL Header */
+        .urlHeader {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* URL Form */
+        .urlForm {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* URL Input Container */
+        .urlInputContainer {
+            display: flex;
+            align-items: center;
+            background-color: #40414F;
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        /* URL Input */
+        .urlInput {
+            flex: 1;
+            border: none;
+            background-color: transparent;
+            font-size: 16px;
+            padding: 8px;
+            outline: none;
+            color: #D4D4D8;
+        }
+
+        .urlInput::placeholder {
+            color: #8E8E92;
+        }
+
+        /* URL Button */
+        .urlButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #10A37F;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .urlButton:hover {
+            background-color: #0C8B68;
+        }
+
+        /* URL Button Icon */
+        .urlButtonIcon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+    </style>
+</head>
+
+<body class="urlBody">
+    <div class="urlContainer">
+        <div class="urlContent">
+            <h1 class="urlHeader">Enter Website URL</h1>
+            <form action="/" method="post" class="urlForm">
+                <div class="urlInputContainer">
+                    <input class="urlInput" name="url" placeholder="https://example.com" value="">
+                    <button type="submit" class="urlButton">
+                        <svg class="urlButtonIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 8L7 16M7 8L17 16" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../static/index.js"></script>
+</body>
+
+</html>
