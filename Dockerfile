@@ -1,17 +1,31 @@
 # Use Python 3.12.3 on Debian Bullseye base image
 FROM python:3.12.3-bullseye
 
-# Set working directory within the container
-WORKDIR /app
+# Update package index and install required system dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy all files from the current directory to the container
-COPY . .
+# Upgrade pip to the latest version
+RUN pip install --no-cache-dir --upgrade pip
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Set the working directory in the container
+WORKDIR /code
 
-# Expose port 80 for FastAPI application
-EXPOSE 8080
+# Copy the local directory's contents into the container at /code
+COPY . /code
 
-# Command to run the FastAPI application with Uvicorn
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Install Python dependencies from requirements.txt
+RUN pip install --no-cache-dir -r /code/src/requirements.txt
+
+# Port Exposed: 9000 
+EXPOSE 9000
+
+WORKDIR /code/src
+
+# Set PYTHONPATH environment variable
+ENV PYTHONPATH "${PYTHONPATH}:/code/src"
+
+# Install the current directory in editable mode
+RUN pip install -e .
