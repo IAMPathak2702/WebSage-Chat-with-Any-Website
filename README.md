@@ -1,6 +1,3 @@
-Here is a `README.md` file for your RAG-based OpenAI chatbot project using Langchain and FAISS:
-
-```markdown
 # WebSage: Chat with Any Website
 
 Welcome to WebSage, a RAG (Retrieval-Augmented Generation) based chatbot designed to chat with any website. This project utilizes OpenAI's GPT, Langchain, and FAISS as the vector database for efficient retrieval and interaction with web content.
