@@ -125,10 +125,19 @@
             transform-origin: bottom left;
             transform: rotate(45deg)
         }
+
+        .urlMessage {
+            color: red;
+            margin-top: 20px;
+            /* Adjust this value to control the spacing below the button */
+            text-align: center;
+        }
     </style>
 </head>
 
 <body class="urlBody">
+
+
     <div class="urlContainer">
         <div class="urlContent">
             <h1 class="urlHeader">Enter Website URL</h1>
@@ -137,11 +146,12 @@
                     <input class="urlInput" name="url" placeholder="https://example.com" value="">
                     <button type="submit" class="urlButton">
                         <i class="gg-check-r"></i>
-
                     </button>
                 </div>
+
             </form>
         </div>
+        <h6 class="urlMessage">{{ api_url }}</h6>
     </div>
     <script src="../static/index.js"></script>
 </body>

@@ -29,3 +29,5 @@ ENV PYTHONPATH "${PYTHONPATH}:/code/src"
 
 # Install the current directory in editable mode
 RUN pip install -e .
+
+

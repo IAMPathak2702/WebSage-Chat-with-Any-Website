@@ -82,7 +82,7 @@ async def receive_url(request: Request, url: Annotated[str, Form()]):
         response = RedirectResponse(url="/index", status_code=302)
         return response
     else:
-        error_message = f"Invalid URL format. Please provide a URL starting with 'http://' or 'https://' you got {APIURL}, {url}"
+        error_message = f"Invalid URL format. Please provide a URL starting with 'http://' or 'https://' you got, {url}"
         return templates.TemplateResponse('url.html', {"request": request, "api_url": error_message})
       
 
