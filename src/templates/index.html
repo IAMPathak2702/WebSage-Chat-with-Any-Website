@@ -4,7 +4,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ChatbotAI</title>
+	<title>WebSage 🕸️</title>
+
 	<link rel="stylesheet" href="../static/style.css">
 </head>
 
@@ -12,11 +13,14 @@
 	<!-- Header -->
 	<header>
 		<div class="header-container">
-			<h1 class="header-title">ChatbotAI</h1>
-			<div class="header-subtitle">communicate with your website</div>
-			<a class="url" href="{{ api_url }}">{{ api_url }}</a>
+			<h3 class="intro">Made with 💖 - Ved</h3>
+			<div class="header-content">
+				<h1 class="header-title">WebSage - Chat with any website</h1>
+				<a class="url" href="{{ api_url }}">{{ api_url }}</a>
+			</div>
 			<button class="refresh-btn">Refresh</button>
 		</div>
+	</header>
 	</header>
 
 	<!-- Chat Container -->
@@ -28,96 +32,52 @@
 	<div class="input-container">
 		<textarea class="user-input" placeholder="Ask me anything..." id="userInput" rows="1"></textarea>
 		<button class="send-button" id="sendButton">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="send-icon">
-				<path
-					d="M3.478 2.105A.75.75 0 004.26 2h15.483a.75.75 0 01.72.905l-3.072 14.625a.75.75 0 01-1.456.167L15.36 15.62l-3.048 3.048a.75.75 0 01-1.06-1.06l3.049-3.049-7.144-7.145a.75.75 0 01.167-1.456L3.478 2.105z" />
-			</svg>
+			<img class="img" src="../static/images/send.png"">
 		</button>
 	</div>
 	<code>
 	</code>
 	<script>
-		var ws = new WebSocket("ws://localhost:8000/ws");
-		var sendButton = document.getElementById("sendButton");
-		var userInput = document.getElementById("userInput");
-		var chatHistory = document.getElementById("chatHistory");
-		var lastUserMessageDiv = null;
-		var isNewUserInput = true;
-		const refreshBtn = document.querySelector(".refresh-btn");
-
-		refreshBtn.addEventListener("click", refreshWebsite);
-
-		function refreshWebsite() {
-			window.location.href = "http://127.0.0.1:8000/";
-		}
-
-
-		function renderMarkdown(markdown) {
-			const html = marked.parse(markdown);
-			const renderedMarkdown = document.createElement('div');
-			renderedMarkdown.innerHTML = html;
-			return renderedMarkdown;
-		}
-
-		ws.onmessage = function (event) {
-			var message = event.data.trim();
-
-			if (lastUserMessageDiv && !isNewUserInput) {
-				var shouldAddSpace = true;
-				var noPrependSpaceChars = [",", ".", "!", "?", ";", ":"];
-				if (noPrependSpaceChars.includes(message.charAt(0))) {
-					shouldAddSpace = false;
-				}
-				lastUserMessageDiv.querySelector(".message-content").textContent +=
-					(shouldAddSpace ? " " : "") + message;
+		var ws = new WebSocket(" ws://localhost:8000/ws"); var sendButton = document.getElementById("sendButton"); var
+			userInput = document.getElementById("userInput"); var chatHistory = document.getElementById("chatHistory");
+		var lastUserMessageDiv = null; var isNewUserInput = true; const
+			refreshBtn = document.querySelector(".refresh-btn"); refreshBtn.addEventListener("click", refreshWebsite);
+		function refreshWebsite() { window.location.href = "http://127.0.0.1:8000/"; } function
+			renderMarkdown(markdown) {
+				const html = marked.parse(markdown); const
+					renderedMarkdown = document.createElement('div'); renderedMarkdown.innerHTML = html; return
+			renderedMarkdown;
+		} ws.onmessage = function (event) {
+			var message = event.data.trim(); if
+				(lastUserMessageDiv && !isNewUserInput) {
+					var shouldAddSpace = true; var noPrependSpaceChars = [",", "."
+						, "!", "?", ";", ":"]; if (noPrependSpaceChars.includes(message.charAt(0))) {
+							shouldAddSpace = false;
+						} lastUserMessageDiv.querySelector(".message-content").textContent += (shouldAddSpace ? " " : "") +
+							message;
 			} else {
 				var messageContainer = document.createElement("div");
-				messageContainer.classList.add("message-container", "ai-response");
-
-				var messageContent = document.createElement("div");
-				messageContent.classList.add("message-content");
-				messageContent.textContent = message;
-
-				messageContainer.appendChild(messageContent);
-				chatHistory.appendChild(messageContainer);
-				lastUserMessageDiv = messageContainer;
-				isNewUserInput = false;
+				messageContainer.classList.add("message-container", "ai-response"); var
+					messageContent = document.createElement("div"); messageContent.classList.add("message-content");
+				messageContent.textContent = message; messageContainer.appendChild(messageContent);
+				chatHistory.appendChild(messageContainer); lastUserMessageDiv = messageContainer; isNewUserInput = false;
 			}
-		};
-
-		sendButton.addEventListener("click", sendMessage);
-
-		function sendMessage() {
-			var message = userInput.value.trim();
-
-			if (message) {
+		}; sendButton.addEventListener("click", sendMessage); function sendMessage() {
+			var
+			message = userInput.value.trim(); if (message) {
 				var userInputContainer = document.createElement("div");
-				userInputContainer.classList.add("message-container", "user-input");
-
-				var userInputContent = document.createElement("div");
-				userInputContent.classList.add("message-content");
-				userInputContent.textContent = message;
-
-				userInputContainer.appendChild(userInputContent);
-				chatHistory.appendChild(userInputContainer);
-				chatHistory.scrollTop = chatHistory.scrollHeight;
+				userInputContainer.classList.add("message-container", "user-input"); var
+					userInputContent = document.createElement("div"); userInputContent.classList.add("message-content");
+				userInputContent.textContent = message; userInputContainer.appendChild(userInputContent);
+				chatHistory.appendChild(userInputContainer); chatHistory.scrollTop = chatHistory.scrollHeight;
 			}
-
-			ws.send(message);
-			userInput.value = "";
-			isNewUserInput = true;
-			lastUserMessageDiv = null;
+			ws.send(message); userInput.value = ""; isNewUserInput = true; lastUserMessageDiv = null;
 		}
-
 		userInput.addEventListener("keypress", function (event) {
 			if (event.key === "Enter" && !event.ctrlKey) {
-				event.preventDefault();
-				sendMessage();
+				event.preventDefault(); sendMessage();
 			}
-		});
-
-
-	</script>
+		}); </script>
 </body>
 
 </html>

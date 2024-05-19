@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Communicator</title>
+    <title>WebSage 🕸️</title>
     <link rel="stylesheet" href="../static/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/check-r.css' rel='stylesheet'>
     <style>
         /* General Styles */
 
@@ -98,6 +99,32 @@
             stroke: currentColor;
             stroke-width: 2;
         }
+
+        .gg-check-r {
+            box-sizing: border-box;
+            position: relative;
+            display: block;
+            width: 22px;
+            height: 22px;
+            border: 2px solid;
+            transform: scale(var(--ggs, 1));
+            border-radius: 4px
+        }
+
+        .gg-check-r::after {
+            content: "";
+            display: block;
+            box-sizing: border-box;
+            position: absolute;
+            left: 3px;
+            top: -1px;
+            width: 6px;
+            height: 10px;
+            border-width: 0 2px 2px 0;
+            border-style: solid;
+            transform-origin: bottom left;
+            transform: rotate(45deg)
+        }
     </style>
 </head>
 
@@ -109,10 +136,8 @@
                 <div class="urlInputContainer">
                     <input class="urlInput" name="url" placeholder="https://example.com" value="">
                     <button type="submit" class="urlButton">
-                        <svg class="urlButtonIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M17 8L7 16M7 8L17 16" stroke="currentColor" stroke-width="1.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                        <i class="gg-check-r"></i>
+
                     </button>
                 </div>
             </form>
