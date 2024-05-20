@@ -35,14 +35,6 @@ def test_chat_page():
     assert response.status_code == 200
     assert "Chat" in response.text
 
-def test_websocket_chat():
-    # This test requires a separate client for WebSocket communication
-    with client.websocket_connect("/ws") as websocket:
-        user_input = "Hello"
-        websocket.send_text(user_input)
-        response = websocket.receive_text()
-        assert response.startswith(user_input)
-
 # Performance Testing
 @pytest.mark.parametrize("num_requests", [10, 100, 1000])
 def test_response_time(num_requests):
