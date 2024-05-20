@@ -1,6 +1,14 @@
 import pytest
 from fastapi.testclient import TestClient
-from .main import app
+import sys
+import os
+
+# Add the parent directory of the current file to the system path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# Now you can import the module from the parent directory
+from src.main import app
+
 
 client = TestClient(app)
 
