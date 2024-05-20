@@ -2,7 +2,10 @@ Metadata-Version: 2.1
 Name: WebSage
 Version: 0.0.1
 Summary: WebSage: A RAG-based chatbot that interacts with any website using OpenAI's GPT, Langchain, and FAISS.
-Author: Ved Prakash Pathak
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.12
 Requires-Dist: beautifulsoup4==4.12.3
 Requires-Dist: fastapi==0.111.0
 Requires-Dist: langchain==0.1.20
@@ -10,7 +13,7 @@ Requires-Dist: langchain_community==0.0.38
 Requires-Dist: langchain_core==0.1.52
 Requires-Dist: langchain_openai==0.1.7
 Requires-Dist: openai==1.30.1
-Requires-Dist: pinecone==4.0.0
+Requires-Dist: pinecone-client==4.0.0
 Requires-Dist: pydantic==2.7.1
 Requires-Dist: python-dotenv==1.0.1
 Requires-Dist: requests==2.31.0

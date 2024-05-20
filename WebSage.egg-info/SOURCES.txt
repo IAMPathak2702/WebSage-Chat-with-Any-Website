@@ -3,6 +3,7 @@ setup.py
 WebSage.egg-info/PKG-INFO
 WebSage.egg-info/SOURCES.txt
 WebSage.egg-info/dependency_links.txt
+WebSage.egg-info/entry_points.txt
 WebSage.egg-info/requires.txt
 WebSage.egg-info/top_level.txt
 src/__init__.py
