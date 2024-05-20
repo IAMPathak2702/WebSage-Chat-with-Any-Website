@@ -1,29 +1,26 @@
 Metadata-Version: 2.1
 Name: WebSage
 Version: 0.0.1
-Summary: Introducing WebSage, an innovative Rag-based chatbot designed to
+Summary: WebSage: A RAG-based chatbot that interacts with any website using OpenAI's GPT, Langchain, and FAISS.
 Author: Ved Prakash Pathak
+Requires-Dist: beautifulsoup4==4.12.3
+Requires-Dist: fastapi==0.111.0
+Requires-Dist: langchain==0.1.20
+Requires-Dist: langchain_community==0.0.38
+Requires-Dist: langchain_core==0.1.52
+Requires-Dist: langchain_openai==0.1.7
+Requires-Dist: openai==1.30.1
+Requires-Dist: pinecone==4.0.0
+Requires-Dist: pydantic==2.7.1
+Requires-Dist: python-dotenv==1.0.1
+Requires-Dist: requests==2.31.0
+Requires-Dist: setuptools==69.5.1
+Requires-Dist: uvicorn==0.29.0
 
-WebSage is an advanced Rag-based chatbot that redefines the way users 
-    interact with websites. Powered by state-of-the-art FAISS vectorization technology, WebSage
-    seamlessly integrates with any web page, allowing users to access and query website content
-    directly through conversational interactions. By inputting a website's URL, users can unlock
-    a treasure trove of information stored within WebSage's comprehensive vector store.
-    At the heart of WebSage lies its sophisticated vectorization engine, which utilizes 
-    FAISS (Facebook AI Similarity Search) to transform textual and visual content from websites 
-    into high-dimensional vectors. These vectors are then indexed and stored within WebSage's vector
-    store, enabling rapid and efficient retrieval of relevant information based on user queries.
-    WebSage's intelligent chat interface empowers users to engage in natural language conversations,
-    posing questions, seeking clarifications, or expressing interests about specific topics within the
-    context of the website content. Whether it's extracting product details, browsing news articles,
-    or exploring educational resources, WebSage intelligently interprets user queries and retrieves 
-    accurate responses from its vast vector store.
-    Moreover, WebSage's Rag (Retrieval-Augmented Generation) architecture enhances its conversational
-    capabilities, allowing it to generate informative and contextually relevant responses 
-    based on user interactions. By combining retrieval and generation techniques, WebSage delivers 
-    personalized and engaging conversations tailored to each user's preferences and interests.
-    WebSage's versatility extends beyond traditional web browsing, offering users a multifaceted
-    experience that transcends conventional search engines. Whether you're a researcher, student,
-    journalist, or curious explorer, WebSage empowers you to dive deep into the web's vast repository
-    of knowledge, providing instant access to valuable insights and information.
-    
+Welcome to WebSage, a RAG (Retrieval-Augmented Generation) based chatbot designed to chat with any website. This project leverages cutting-edge technologies such as OpenAI's GPT, Langchain, and FAISS to provide efficient retrieval and interaction with web content.
+Web Content Interaction: Utilizes BeautifulSoup4 for web scraping and content extraction, enabling the chatbot to interact with live web pages and retrieve relevant information.
+FastAPI Integration: Offers a seamless API endpoint for easy interaction with the chatbot, facilitating integration with other applications and services.
+Langchain for LLM: Manages and interacts with language models using Langchain, ensuring robust and scalable conversational AI capabilities.
+FAISS Vector Database: Employs FAISS for fast and efficient similarity search and retrieval, enhancing the chatbot's ability to find and provide accurate information from large datasets.
+Environment Variables: Configurable via a .env file, allowing easy setup and management of API keys and other critical settings.
+WebSage combines the power of advanced AI technologies to deliver a versatile and efficient chatbot capable of interacting with any website, making it an invaluable tool for various applications.

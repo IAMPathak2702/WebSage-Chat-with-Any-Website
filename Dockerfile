@@ -1,7 +1,10 @@
-# Use Python 3.12.3 on Debian Bullseye base image
+# Use the latest Python 3.12 image as the base image
 FROM python:3.12.3-bullseye
 
-# Update package index and install required system dependencies
+# Set the working directory in the container
+WORKDIR /app
+
+# Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
@@ -10,24 +13,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Upgrade pip to the latest version
 RUN pip install --no-cache-dir --upgrade pip
 
-# Set the working directory in the container
-WORKDIR /code
+# Copy the entire project into the container
+COPY . /app
 
-# Copy the local directory's contents into the container at /code
-COPY . /code
+# Install Python dependencies
+RUN pip install --no-cache-dir -r /app/src/requirements.txt
 
-# Install Python dependencies from requirements.txt
-RUN pip install --no-cache-dir -r /code/src/requirements.txt
+# Expose the port on which the FastAPI application will run (change if needed)
+EXPOSE 8000
 
-# Port Exposed: 9000 
-EXPOSE 9000
+# Set the environment variables
+ENV OPENAI_API_KEY=${OPENAI_API_KEY}
 
-WORKDIR /code/src
+# Set the working directory to the source code
+WORKDIR /app/src
 
-# Set PYTHONPATH environment variable
-ENV PYTHONPATH "${PYTHONPATH}:/code/src"
-
-# Install the current directory in editable mode
-RUN pip install -e .
-
-
+# Set the command to run the FastAPI application
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
