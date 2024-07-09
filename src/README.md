@@ -1,6 +1,3 @@
-Here is a `README.md` file for your RAG-based OpenAI chatbot project using Langchain and FAISS:
-
-```markdown
 # WebSage: Chat with Any Website
 
 Welcome to WebSage, a RAG (Retrieval-Augmented Generation) based chatbot designed to chat with any website. This project utilizes OpenAI's GPT, Langchain, and FAISS as the vector database for efficient retrieval and interaction with web content.
@@ -22,18 +19,23 @@ Ensure you have Python 3.10 or higher installed. Install the required libraries 
 ```bash
 pip install -r requirements.txt
 ```
+
 ## Project Snapshots
 
 ### URL Input Page
+
 ![URL Input Page](https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website/blob/main/snapshots/urlPage.png)
 
 ### Chatbot Interaction Page
+
 ![Chatbot Interaction Page](https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website/blob/main/snapshots/chatbotPage.png)
 
 ### Demo Video
+
 [![Websage Video](https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website/blob/main/snapshots/Websage-Video.mp4)](https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website/blob/main/snapshots/Websage-Video.mp4)
 
 ### Animated Workflow
+
 ![WebSage GIF](https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website/blob/main/snapshots/WebSage.gif)
 
 ### Libraries Used
@@ -108,28 +110,28 @@ pip install -r requirements.txt
 
 ### Running the Application
 
-1. Clone the repository:
+1.Clone the repository:
 
 ```bash
 git clone https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website.git
 cd WebSage-Chat-with-Any-Website
 ```
 
-2. Install the dependencies:
+2.Install the dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Configure your `.env` file with the necessary API keys and settings.
+3.Configure your `.env` file with the necessary API keys and settings.
 
-4. Start the FastAPI server:
+4.Start the FastAPI server:
 
 ```bash
 uvicorn main:app --reload
 ```
 
-5. Open your browser and navigate to `http://localhost:8000` to access the chatbot interface.
+5.Open your browser and navigate to `http://localhost:8000` to access the chatbot interface.
 
 ### Usage
 
@@ -150,6 +152,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by the advancements in AI and NLP technologies.
 
 For more details, visit the [GitHub repository](https://github.com/IAMPathak2702/WebSage-Chat-with-Any-Website).
-
-# Project Snapshots:
-

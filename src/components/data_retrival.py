@@ -31,7 +31,7 @@ def strip_html_and_split_into_paragraphs(html_content):
     text = soup.get_text(separator="\n", strip=True)
     
     # Define a translation table to remove special characters
-    special_chars = ",;:.!?()[]{}<>`~@#$%^&*_-=+|\\/"
+    special_chars = """,;:.!?()[]{}<>`~@#$%^&*_-=+|\\/"""
 
     # Remove special characters from the text
     translation_table = str.maketrans("", "", special_chars)
